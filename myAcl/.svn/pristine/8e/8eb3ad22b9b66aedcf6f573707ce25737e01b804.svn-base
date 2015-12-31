@@ -1,0 +1,142 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%String root=request.getContextPath();%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>添加主机信息</title>
+<script src="<%=root%>/js/jquery.min.js"></script>
+<script src="<%=root%>/js/check.js"></script>
+<link href="<%=root %>/images/skin.css" rel="stylesheet" type="text/css" />
+<link href="<%=root %>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=root %>/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<script type="text/javascript">
+
+	//增加
+	function addHostManagement(){
+		if (!isNumber($('#M_MANUAL').val())) {
+			alert("主机编号必须是数字！");
+			return;
+		}
+		if($.trim($("#M_MANUAL").val())==""){
+			alert("主机编号不能为空");
+			return false;
+		}
+		if($.trim($("#houseId").val())==""){
+			alert("房屋编号不能为空");
+			return false;
+		}else {
+
+		} 
+/* 		else{
+			if($.trim($("#houseId").val()).length != 10){
+			alert("请正确填写房屋编号");
+			return false;
+			}		
+		} */
+	
+		if($("#ipAddress").val()==""){
+			alert("IP地址不能为空");
+			return false;
+		}else{
+			var re =/^(\d{1,2}|1\d\d|2[1-4]\d|25[1-5])\.(\d{1,2}|1\d\d|2[1-4]\d|25[1-5])\.(\d{1,2}|1\d\d|2[1-4]\d|25[1-5])\.(\d{1,2}|1\d\d|2[1-4]\d|25[1-5])$/;
+			//alert(re.test($("#ipAddress").val()));
+			if(re.test($("#ipAddress").val())){
+				//alert("进来了");
+				//return true;
+				
+			}else{
+				alert("请输入正确的IP地址");
+				return false;
+			} 
+		}
+        
+		var id=parent.jQuery("#hid").val();
+		var data= $("#editForm").serialize();
+		$.post("add?id="+id,data,function(resultData){
+			var result =eval(eval("("+resultData+")"));
+			//alert("*****");
+			if(result==1){				
+				window.parent.$.colorbox.close();
+				parent.location.reload();
+			}else if(result == 2){
+			 alert("主机编号已存在");
+			}
+			
+			else{
+				alert("添加失败，请重新添加或与管理员联系");
+			}		
+		})
+			
+	}
+	
+	
+	
+</script>
+
+<body >
+
+<form action="" id="editForm">
+<!-- 这里加内容 start-->
+<table width="100%" border="0" cellspacing="0" cellpadding="1" >
+	<thead>
+		<tr>
+			<td colspan="3" style="text-align: center; height: 30px; background-color: #C9C9C9; font-size: 18px;">添加主机信息</td>
+		</tr>
+	</thead>
+	<tr>
+    	<td width="20%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt2">
+			主机编号：
+       	</td>
+        <td width="32%" height="30" bgcolor="#f2f2f2">
+            <input name="hostManagement.M_MANUAL"   type="text" id="M_MANUAL" size="30"  onBlur="M_MANUALBlur()"/>
+        </td>
+        <td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><font class="ERROR_No" style="color: red;">*必须唯一</font></td>
+     </tr>
+	<tr>
+    	<td width="20%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt2">
+			房屋编号：
+       	</td>
+        <td width="32%" height="30" bgcolor="#f2f2f2">
+            <input name="hostManagement.M_HOUSEID"   type="text" id="houseId" size="30" />
+        </td>
+        <td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><font class="ERROR_No" style="color: red;">*此为必填项</font></td>
+     </tr>
+     <tr>
+    	<td width="20%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt2">
+			当前IP：
+       	</td>
+        <td width="32%" height="30" bgcolor="#f2f2f2">
+            <input name="hostManagement.M_IP" type="text" id="ipAddress" size="30" />
+            
+        </td>
+        <td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><font class="ERROR_No" style="color: red;">*此为必填项</font></td>
+     </tr>
+  <!--    <tr>
+    	<td width="20%" height="30" align="right" bgcolor="#f2f2f2" class="left_txt2">
+			主机状态：
+       	</td>
+        <td width="32%" height="30" bgcolor="#f2f2f2">
+            <select name="hostManagement.M_STATE"  id="title" />
+            <option value="0">&ndash; 选择状态 &ndash;</option>
+            <option value="1">布放</option>
+            <option value="2">撤防</option>
+            
+            </select>
+        </td>
+        <td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"></td>
+     </tr>  -->
+    
+     <tr >
+     	<td colspan="3" align="center" style="padding-top:  50px;">
+     		<input type="button" value=" 添 加 "  onclick="addHostManagement()"/>
+     		<input type="reset" value=" 重 置 "/>
+     	</td>
+     </tr>  
+</table>   
+</form>  
+							
+</body>
+</html>

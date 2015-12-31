@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="com" namespace="/" extends="json-default">
+		<!-- 主机状态 -->
+		<action name="hostManagementState" method="hostManagementState" class="com.action.HostManagementStateAction">
+			<result name="ok" type="json">
+				<param name="res">res</param> 
+			</result>			
+		</action>
+		
+		<!-- 报警 -->
+		<action name="LarumInfoState" method="LarumInfoState" class="com.action.LarumAction">
+			<result name="success" type="json" ><!-- view.jsp -->
+				<param name="res">res</param>
+			</result>			
+		</action>
+<!-- 		http：//平台软件IP地址：8080/jsonPrcProjectApi/querycost?id=家庭主机ID -->
+		<!-- 手机端查询当前费用 -->
+		<action name="querycost" method="findByPayManNow" class="com.action.PaymentManagementAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>			
+		</action>
+		
+<!-- 		6、手机端返回缴费信息 -->
+		<action name="paycost" method="findByPayList" class="com.action.PayInfoAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>	
+		</action>
+		
+		<action name="poweroff" method="paymentStateOff" class="com.action.PaymentStateOffAction">
+			<result name="success" type="json">
+				<param name="dst">dst</param> 
+			</result>	
+		</action>
+		
+		<action name="poweron" method="paymentStateOpen" class="com.action.PaymentStateOpenAction">
+			<result name="success" type="json">
+				<param name="dst">dst</param> 
+			</result>	
+		</action>
+		<!-- 7、手机请求住户信息 -->
+		<action name="queryhomeinfo" method="queryhomeinfo" class="com.action.HouseHoldInfoAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>	
+		</action>
+		<action name="savehomeinfo" method="savehomeinfo" class="com.action.HouseHoldAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>	
+		</action>
+		<!-- 8 平台软件和手机端增加历史缴费记录查看功能 -->
+	<action name="payhistory" method="payhistory" class="com.action.PayInfosAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>	
+		</action>
+			<!-- 9 手机紧急响铃 -->
+	<action name="exigency" method="exigency" class="com.action.LarumInfosAction">
+			<result name="success" type="json">
+				<param name="msg">msg</param> 
+			</result>	
+		</action>
+		
+	
+	</package>
+</struts>    

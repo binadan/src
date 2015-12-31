@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="warehouse" location="165,10" size="770,490">
+    <action name="fetchWarehouseList" location="65,47" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="warehouselist.jsp" />
+      </result>
+    </action>
+    <action name="warehouseAdd" location="65,222" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="warehouse.jsp" />
+      </result>
+    </action>
+    <action name="loadWarehouseByIdJson" location="65,408" size="150,40" />
+    <action name="fetchProduct" location="555,408" size="150,40" />
+    <action name="submitWarehouse" location="555,303" size="150,40" />
+    <action name="fetchProductBySupplier" location="310,303" size="150,40" />
+  </package>
+  <webResource name="warehouselist.jsp" path="/warehouse/warehouselist.jsp" location="977,30" size="150,55" />
+  <webResource name="login.html" path="/login.html" location="10,30" size="150,55" />
+  <webResource name="warehouse.jsp" path="/warehouse/warehouse.jsp" location="985,205" size="150,55" />
+</Struts2Diagram>
+

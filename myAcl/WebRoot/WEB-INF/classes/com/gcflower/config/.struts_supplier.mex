@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="supplier" location="0,0" size="0,0">
+    <action name="fetchSupplierList" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="supplierlist.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="editSupplierJson" location="0,0" size="0,0" />
+    <action name="deleteSupplierJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="loadSupplierByIdJson" location="0,0" size="0,0" />
+    <action name="searchAllSupJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="productlist.jsp" path="/product/productlist.jsp" location="62,205" size="150,55" />
+  <webResource name="login.html" path="/login.html" location="345,30" size="150,55" />
+  <webResource name="supplierlist.jsp" path="/supplier/supplierlist.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

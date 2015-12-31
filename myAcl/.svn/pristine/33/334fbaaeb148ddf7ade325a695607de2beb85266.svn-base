@@ -1,0 +1,143 @@
+package com.gcflower.entity;
+
+/**
+ * 
+ * @Title: 主机管理 HostManagement.java
+ * @Package com.gcflower.entity
+ * @Description: TODO
+ * @author 田凯
+ * @date 2015-5-19
+ */
+
+public class HostManagement1 {
+
+	private int M_ID; // 主机ID
+
+	private String M_HOUSEID;// 房屋ID
+
+	private String M_IP;// 主机IP地址
+
+	private String M_STATE;// 主机状态
+
+	//private String M_ARREARAGE;// 欠费信息
+	
+	private String P_STATE;
+	
+	private String M_MANUAL;
+	
+	private String P_NO;
+	
+	private String M_KEFUZHANGHAO;
+	
+
+	public String getM_KEFUZHANGHAO() {
+		return M_KEFUZHANGHAO;
+	}
+
+	public void setM_KEFUZHANGHAO(String m_KEFUZHANGHAO) {
+		M_KEFUZHANGHAO = m_KEFUZHANGHAO;
+	}
+
+
+	public String getM_MANUAL() {
+		return M_MANUAL;
+	}
+
+	public void setM_MANUAL(String m_MANUAL) {
+		M_MANUAL = m_MANUAL;
+	}
+
+	public String getP_NO() {
+		return P_NO;
+	}
+
+	public void setP_NO(String p_NO) {
+		P_NO = p_NO;
+	}
+
+	public String getP_STATE() {
+		return P_STATE;
+	}
+	public String getPstate() {
+		return P_STATE;
+	}
+
+	public void setP_STATE(String p_STATE) {
+		P_STATE = p_STATE;
+	}
+
+	/**
+	 * 生成对应get/set方法
+	 * 
+	 * @return
+	 */
+	public int getM_ID() {
+		return M_ID;
+	}
+
+	public void setM_ID(int m_ID) {
+		M_ID = m_ID;
+	}
+
+	public String getM_HOUSEID() {
+		return M_HOUSEID;
+	}
+
+	public void setM_HOUSEID(String m_HOUSEID) {
+		M_HOUSEID = m_HOUSEID;
+	}
+
+	public String getM_IP() {
+		return M_IP;
+	}
+
+	public void setM_IP(String m_IP) {
+		M_IP = m_IP;
+	}
+
+	public String getM_STATE() {
+		return M_STATE;
+	}
+	public String getMstate() {
+		return M_STATE;
+	}
+
+	public void setM_STATE(String m_STATE) {
+		M_STATE = m_STATE;
+	}
+
+	
+	/**
+	 * 生成toString方法
+	 */
+
+
+	/**
+	 * 生成带参构造方法
+	 * 
+	 * @param m_ID
+	 * @param m_HOUSEID
+	 * @param m_IP
+	 * @param m_STATE
+	 * @param m_ARREARAGE
+	 */
+
+	
+	/**
+	 * 生成无参构造方法
+	 */
+	public HostManagement1() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "HostManagement1 [M_ID=" + M_ID + ", M_HOUSEID=" + M_HOUSEID
+				+ ", M_IP=" + M_IP + ", M_STATE=" + M_STATE + "]";
+	}
+
+	
+	
+
+}

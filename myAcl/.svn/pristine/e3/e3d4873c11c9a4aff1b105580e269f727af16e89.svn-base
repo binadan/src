@@ -1,0 +1,45 @@
+package com.gcflower.dao;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+
+import com.gcflower.entity.Household;
+import com.gcflower.entity.Videosave;
+/**
+ * dao层
+ * @author 田凯
+ *
+ */
+public class videoDao extends BaseDao{
+
+	
+	/**
+	 * 查詢所有视频
+	 */
+	public List<Videosave>findAll(){
+		
+		return(List<Videosave>)getHibernateTemplate().find("from Videosave ");
+		
+	}
+	/**
+	 * 删除
+	 * @param vide
+	 */
+	public void delHouser(Videosave vide){
+		this.getHibernateTemplate().delete(vide);
+	}
+    /**
+     * 增加
+     * @param vide
+     */
+    public void addvideo(Videosave vide){
+	try {
+		getHibernateTemplate().save(vide);
+	} catch (DataAccessException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+}

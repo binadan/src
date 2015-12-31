@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+myeclipseTomcatServer.myAcl.IEARProjectName=
+myeclipseTomcatServer.myAcl.altContextRoot=
+myeclipseTomcatServer.myAcl.contextRoot=/myAcl
+myeclipseTomcatServer.myAcl.deployIsOverProject=false
+myeclipseTomcatServer.myAcl.deploymentPath=E\:\\Project\\guard\\src\\.metadata\\.me_tcat\\webapps\\myAcl
+myeclipseTomcatServer.myAcl.isDeployed=true
+myeclipseTomcatServer.myAcl.isExploded=true
+myeclipseTomcatServer.myAcl.isUptoDate=true
+myeclipseTomcatServer.myAcl.noFileCopy=false
+myeclipseTomcatServer.myAcl.shouldBackup=false
+myeclipseTomcatServer.myAcl.shouldOverwrite=false
+myeclipseTomcatServer.myAcl.type=WebDeployment

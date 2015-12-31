@@ -1,0 +1,121 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%
+	String root = request.getContextPath();
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>缴费信息</title>
+<script src="<%=root%>/js/jquery.min.js"></script>
+<script src="<%=root%>/js/check.js"></script>
+<link href="<%=root%>/images/skin.css" rel="stylesheet" type="text/css" />
+<link href="<%=root%>/css/css.css" rel="stylesheet" type="text/css" />
+<link href="<%=root%>/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<script type="text/javascript">
+	//修改
+	function updHouser() {
+
+		if($("#zhujiId").val()==""){
+			alert("主机ID不能为空");
+			return;
+		}else{
+			if(!isNumber($('#zhujiId').val())){
+				alert("主机ID只能为数字");
+				return;
+			}
+		}
+		
+		if($("#jiaofeiMoney").val()==""){
+			alert("缴费金额不能为空");
+			return;
+		}else{
+			if(!isNumber($('#jiaofeiMoney').val())){
+				alert("缴费金额只能为数字");
+				return;
+			}
+		}
+		//alert("2");
+
+		//window.parent.dialogArguments.document.execCommand('Refresh'); 
+		var id = parent.jQuery("#hid").val();
+		//	alert(id);
+		var data = $("#editForm").serialize();
+		//	alert(data);
+		$.post("updPay?id=" + id, data, function(resultData) {
+			var result = eval(eval("(" + resultData + ")"));
+			//	alert(result);
+			//	alert("4");
+			if (result == 1) {
+				window.parent.$.colorbox.close();
+				parent.location.reload();
+			} else {
+				alert("添加失败，请重新添加或与管理员联系");
+			}
+		})
+
+	}
+</script>
+
+<body>
+
+	<form action="" id="editForm" method="post">
+		<!-- 隐藏字段 start-->
+		<s:hidden id="PId" name="paymentmanagement.PId" />
+		<!-- end -->
+
+
+		<table width="100%" border="0" cellspacing="0" cellpadding="1">
+			<thead>
+				<tr>
+					<td colspan="3"
+						style="text-align: center; height: 30px; background-color: #C9C9C9; font-size: 18px;">
+						缴费信息</td>
+				</tr>
+			</thead>
+			<tr>
+				<td width="30%" height="30" align="right" bgcolor="#f2f2f2"
+					class="left_txt2">住户编号：</td>
+				<td width="32%" height="30" bgcolor="#f2f2f2"><s:textfield
+						name="paymentmanagement.PHid" size="30" readonly="true"></s:textfield></td>
+				<td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><div id="HName_prompt">
+						<font class="ERROR_No" style="color: red;">*住户编号不可修改</font>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td width="30%" height="30" align="right" bgcolor="#f2f2f2"
+					class="left_txt2">主机编号：</td>
+				<td width="32%" height="30" bgcolor="#f2f2f2"><s:textfield
+						name="paymentmanagement.PNo" id="zhujiId" size="30" readonly="true"></s:textfield>
+				</td>
+				<td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><div id="HName_prompt">
+						<font class="ERROR_No" style="color: red;">*主机编号不可修改</font>
+					</div>
+				</td>
+			</tr>
+			<tr>
+			<td width="30%" height="30" align="right" bgcolor="#f2f2f2"
+					class="left_txt2">缴费金额：</td>
+				<td width="32%" height="30" bgcolor="#f2f2f2"><s:textfield
+						name="paymentmanagement.PMoney" id="jiaofeiMoney" size="30"></s:textfield>
+				</td>
+				<td width="45%" height="30" bgcolor="#f2f2f2" class="left_txt"><div id="HName_prompt">
+						<font class="ERROR_No" style="color: red;">*主机编号必填并且只能为数字</font>
+					</div>
+				</td>
+
+			</tr>
+			
+			<tr>
+				<td colspan="3" align="center" style="padding-top:  15px;"><input
+					type="button" value=" 修 改" onclick="updHouser();" /> <input
+					type="reset" value=" 重 置 " /></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

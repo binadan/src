@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.gcflower.entity.Laruminfo1" table="laruminfo" catalog="znaf">
+        <id name="l_id" type="java.lang.Integer">
+            <column name="L_ID" />
+            <generator class="native" />
+        </id>
+        <property name="l_mid" type="java.lang.String">
+            <column name="L_MID"  />
+        </property>
+        <property name="l_hid" type="java.lang.String">
+            <column name="L_HID" />
+        </property>
+        <property name="l_type" type="java.lang.String">
+            <column name="L_TYPE" />
+        </property>
+        <property name="l_personid" type="java.lang.Integer">
+            <column name="L_PERSONID" />
+        </property>
+        <property name="l_date" type="java.lang.String">
+            <column name="L_DATE"  />
+        </property>
+        <property name="l_pdate" type="java.lang.String">
+            <column name="L_PDATE"  />
+        </property>
+        <property name="l_remark" type="java.lang.String">
+            <column name="L_REMARK"  />
+        </property>
+        <property name="l_state" type="java.lang.String">
+            <column name="L_STATE"  />
+        </property>
+         <property name="h_name" type="java.lang.String">
+            <column name="H_NAME"  />
+        </property>
+        
+         <property name="h_tel" type="java.lang.String">
+            <column name="H_TEL"  />
+        </property>
+         <property name="m_houseid" type="java.lang.Integer">
+            <column name="M_HOUSEID"  />
+        </property>
+         <property name="h_no" type="java.lang.String">
+            <column name="H_NO"  />
+        </property>
+        
+    </class>
+</hibernate-mapping>

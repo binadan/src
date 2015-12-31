@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="product" location="50,50" size="170,71">
+    <action name="searchProduct" location="10,20" size="150,41">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="searchProductNameJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="searchPNJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="searchOrderInfo" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="xq.jsp" />
+      </result>
+    </action>
+    <action name="searchOrderList" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="xqorder.jsp" />
+      </result>
+    </action>
+    <action name="searchOrderDetail" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="orderdetail.jsp" />
+      </result>
+    </action>
+    <action name="searchEntryLog" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="entrylogindex.jsp" />
+      </result>
+    </action>
+    <action name="addEntryInput" location="0,0" size="0,0">
+      <result name="add_input">
+        <resourceEdge source="add_input" routing="0" target="entry.jsp" />
+      </result>
+    </action>
+    <action name="addEntry" location="0,0" size="0,0">
+      <result name="add_success" />
+    </action>
+    <action name="searchSupplier" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="addSupplier" location="0,0" size="0,0">
+      <result name="pub_add_success" />
+    </action>
+    <action name="checksupPhone" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateSupInput" location="0,0" size="0,0">
+      <result name="update_input">
+        <resourceEdge source="update_input" routing="0" target="update.jsp" />
+      </result>
+    </action>
+    <action name="updateSup" location="0,0" size="0,0">
+      <result name="update_sussess" />
+    </action>
+    <action name="deleteSup" location="0,0" size="0,0">
+      <result name="del_sussess" />
+    </action>
+    <action name="searchSupNameJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="stock_zc" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="stockindex.jsp" />
+      </result>
+    </action>
+    <action name="searchMaterial" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="addInputMaterial" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="inmaterial.jsp" />
+      </result>
+    </action>
+    <action name="addMaterialDetail" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addMaterial" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateMaterial" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="searchMDProductJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="serarchStockProductJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="searchSpeJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateDetailInput" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="update.jsp" />
+      </result>
+    </action>
+    <action name="updateMaterialDetail" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteMaterialDetail" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteMaterial" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="stock_zc_detail" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="stockDetail.jsp" />
+      </result>
+    </action>
+    <action name="searchzcPurlog" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="purlog.jsp" />
+      </result>
+    </action>
+    <action name="searchFlower" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="index.jsp" />
+      </result>
+    </action>
+    <action name="addInputFlower" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="inflower.jsp" />
+      </result>
+    </action>
+    <action name="updateFlowerInput" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="update.jsp" />
+      </result>
+    </action>
+    <action name="stock_hm" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="stockindex.jsp" />
+      </result>
+    </action>
+    <action name="stock_hm_detail" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="stockDetail.jsp" />
+      </result>
+    </action>
+    <action name="searchPurlog" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="purlog.jsp" />
+      </result>
+    </action>
+    <action name="searchFinalProduct" location="0,0" size="0,0">
+      <result name="index">
+        <resourceEdge source="index" routing="0" target="stock.jsp" />
+      </result>
+    </action>
+    <action name="saveFinalProduct" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="employeelist.jsp" path="/system/employeelist.jsp" location="952,10" size="150,55" />
+  <webResource name="producttypelist.jsp" path="/system/producttypelist.jsp" location="1223,535" size="150,55" />
+  <webResource name="index.jsp" path="/product/index.jsp" location="50,500" size="150,55" />
+  <webResource name="xq.jsp" path="/product/xq.jsp" location="3,163" size="0,0" />
+  <webResource name="entry.jsp" path="/product/entry.jsp" location="0,0" size="0,0" />
+  <webResource name="entrylogindex.jsp" path="/product/entrylogindex.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/supplier/index.jsp" location="0,0" size="0,0" />
+  <webResource name="update.jsp" path="/supplier/update.jsp" location="0,0" size="0,0" />
+  <webResource name="xqorder.jsp" path="/product/xqorder.jsp" location="0,0" size="0,0" />
+  <webResource name="orderdetail.jsp" path="/product/orderdetail.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/material/index.jsp" location="0,0" size="0,0" />
+  <webResource name="inmaterial.jsp" path="/material/inmaterial.jsp" location="0,0" size="0,0" />
+  <webResource name="stockindex.jsp" path="/material/stockindex.jsp" location="0,0" size="0,0" />
+  <webResource name="update.jsp" path="/material/update.jsp" location="0,0" size="0,0" />
+  <webResource name="stockDetail.jsp" path="/material/stockDetail.jsp" location="0,0" size="0,0" />
+  <webResource name="index.jsp" path="/flowers/index.jsp" location="0,0" size="0,0" />
+  <webResource name="inflower.jsp" path="/flowers/inflower.jsp" location="0,0" size="0,0" />
+  <webResource name="update.jsp" path="/flowers/update.jsp" location="0,0" size="0,0" />
+  <webResource name="stockindex.jsp" path="/flowers/stockindex.jsp" location="0,0" size="0,0" />
+  <webResource name="stockDetail.jsp" path="/flowers/stockDetail.jsp" location="0,0" size="0,0" />
+  <webResource name="purlog.jsp" path="/flowers/purlog.jsp" location="0,0" size="0,0" />
+  <webResource name="purlog.jsp" path="/material/purlog.jsp" location="0,0" size="0,0" />
+  <webResource name="stock.jsp" path="/product/stock.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

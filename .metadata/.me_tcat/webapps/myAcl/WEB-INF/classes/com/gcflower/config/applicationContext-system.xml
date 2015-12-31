@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 用户 部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="userDao" class="com.gcflower.dao.UserDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="userService" class="com.gcflower.service.UserService">
+		<property name="userDao">
+			<ref bean="userDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="userAction" class="com.gcflower.action.UserAction"
+		scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+
+
+	<!-- 权限 部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="aclDao" class="com.gcflower.dao.AclDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="aclService" class="com.gcflower.service.AclService">
+		<property name="aclDao">
+			<ref bean="aclDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="aclAction" class="com.gcflower.action.AclAction" scope="prototype">
+		<property name="aclService" ref="aclService" />
+	</bean>
+
+
+	<!-- 模块 部分 -->
+
+
+	<!-- DAO定义 -->
+	<bean id="moduleDao" class="com.gcflower.dao.ModuleDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="moduleService" class="com.gcflower.service.ModuleService">
+		<property name="moduleDao">
+			<ref bean="moduleDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="moduleAction" class="com.gcflower.action.ModuleAction"
+		scope="prototype">
+		<property name="moduleService" ref="moduleService" />
+	</bean>
+
+
+
+	<!-- 业务员 部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="salesmanDao" class="com.gcflower.dao.SalesmanDao"
+		parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="salesmanService" class="com.gcflower.service.SalesmanService">
+		<property name="salesmanDao">
+			<ref bean="salesmanDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="salesmanAction" class="com.gcflower.action.SalesmanAction"
+		scope="prototype">
+		<property name="salesmanService" ref="salesmanService" />
+	</bean>
+
+
+	<!-- 角色 部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="roleDao" class="com.gcflower.dao.RoleDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="roleService" class="com.gcflower.service.RoleService">
+		<property name="roleDao">
+			<ref bean="roleDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="rleAction" class="com.gcflower.action.RoleAction" scope="prototype">
+		<property name="roleService" ref="roleService" />
+	</bean>
+
+
+
+	<!-- 组织架构 部分 ： 团队部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="tearmDao" class="com.gcflower.dao.TearmDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="tearmService" class="com.gcflower.service.TearmService">
+		<property name="tearmDao">
+			<ref bean="tearmDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="tearmAction" class="com.gcflower.action.TearmAction"
+		scope="prototype">
+		<property name="tearmService" ref="tearmService" />
+	</bean>
+	<!-- 住户信息 -->
+	<!--配置action -->
+	<bean id="householdAction" class="com.gcflower.action.HouseholdAction"
+		scope="prototype">
+		<property name="householdService" ref="householdService" />
+	</bean>
+	<!-- 配置service -->
+	<bean id="householdService" class="com.gcflower.service.HouseholdService">
+		<property name="householdDao">
+			<ref bean="householdDao" />
+		</property>
+	</bean>
+	<!-- 配置Dao -->
+	<bean id="householdDao" class="com.gcflower.dao.HouseholdDao"
+		parent="baseDao" />
+	<!-- 住户信息END -->
+	<!-- 主机管理模块 -->
+
+	<!-- DAO定义 -->
+	<bean id="hostManagementDao" class="com.gcflower.dao.HostManagementDao"
+		parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="hostManagementService" class="com.gcflower.service.HostManagementService">
+		<property name="hostManagementDao">
+			<ref bean="hostManagementDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="hostManagementAction" class="com.gcflower.action.HostManagementAction"
+		scope="prototype">
+		<property name="hostManagementService" ref="hostManagementService" />
+		<property name="paymentManagementService" ref="paymentManagementService"></property>
+	</bean>
+
+
+	<!-- 		警报信息管理部分			-->
+	
+	<!-- DAO定义 -->
+	<bean id="larumDao" class="com.gcflower.dao.LarumDao" parent="baseDao" />	
+	<bean id="laruminfo1mangermentDao" class="com.gcflower.dao.Laruminfo1mangermentDao" parent="baseDao" />
+	<!-- Service定义 -->
+	<bean id="larumService" class="com.gcflower.service.LarumService">
+		<property name="larumDao">
+			<ref bean="larumDao" />
+		</property>
+	</bean>
+	<bean id="laruminfoManagementService" class="com.gcflower.service.LaruminfoManagementService">
+		<property name="laruminfo1mangermentDao">
+			<ref bean="laruminfo1mangermentDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="larumAction" class="com.gcflower.action.LarumAction" scope="prototype">
+		<property name="laruminfoManagementService" ref="laruminfoManagementService" />
+	</bean>
+	
+	<!-- 視頻信息管理部分 -->
+
+	<!-- DAO定义 -->
+	<bean id="videoDao" class="com.gcflower.dao.videoDao" parent="baseDao" />
+
+	<!-- Service定义 -->
+	<bean id="videoService" class="com.gcflower.service.videoService">
+		<property name="videodao">
+			<ref bean="videoDao" />
+		</property>
+	</bean>
+
+	<!-- Action 定义 -->
+	<bean id="videoAction" class="com.gcflower.action.videoAction"
+		scope="prototype">
+		<property name="viser" ref="videoService" />
+		<property name="videoService" ref="videoService" />
+	</bean>
+
+
+	<!-- 缴费信息 -->
+	<!--配置action -->
+	<bean id="paymentmanagementAction" class="com.gcflower.action.PaymentmanagementAction"
+		scope="prototype">
+		<property name="paymentManagementService" ref="paymentManagementService" />
+		<property name="payService" ref="payService"></property>
+	</bean>
+	<!-- 配置service -->
+	<bean id="paymentManagementService" class="com.gcflower.service.PaymentManagementService">
+		<property name="paymentmanagementDao">
+			<ref bean="paymentManagementDao" />
+		</property>
+	</bean>
+	<bean id="payService" class="com.gcflower.service.PayService">
+		<property name="payDao">
+			<ref bean="payDao" />
+		</property>
+	</bean>
+	<!-- 配置Dao -->
+	<bean id="paymentManagementDao" class="com.gcflower.dao.PaymentmanagementDao"
+		parent="baseDao" />
+	<bean id="payDao" class="com.gcflower.dao.PayDao" parent="baseDao" />
+	<!-- 缴费END -->
+
+	<!-- 版本部分 -->
+
+	<!-- dao定义 -->
+	<bean id="versionDao" class="com.gcflower.dao.VersionDao" parent="baseDao"
+		scope="prototype">
+	</bean>
+	<!-- service定义 -->
+	<bean id="versionService" class="com.gcflower.service.VersionService">
+		<property name="versionDao" ref="versionDao" />
+	</bean>
+	<!-- acton定义 -->
+	<bean id="versionAction" class="com.gcflower.action.VersionAction"
+		scope="prototype">
+		<property name="versionService" ref="versionService" />
+	</bean>
+
+</beans>

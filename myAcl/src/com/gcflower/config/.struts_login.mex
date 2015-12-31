@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="mylogin" location="0,0" size="0,0">
+    <action name="login" location="0,0" size="0,0">
+      <result name="login" />
+    </action>
+  </package>
+  <webResource name="employeelist.jsp" path="/system/employeelist.jsp" location="2061,1080" size="150,55" />
+  <webResource name="producttypelist.jsp" path="/system/producttypelist.jsp" location="1774,1780" size="150,55" />
+  <webResource name="login.html" path="/login.html" location="2060,1500" size="150,55" />
+  <webResource name="menulist.jsp" path="/role/menulist.jsp" location="577,1780" size="150,55" />
+  <webResource name="menu_add.jsp" path="/role/menu_add.jsp" location="326,1780" size="150,55" />
+  <webResource name="menu_edit.jsp" path="/role/menu_edit.jsp" location="2322,975" size="150,55" />
+  <webResource name="rolelist.jsp" path="/role/rolelist.jsp" location="2052,135" size="150,55" />
+  <webResource name="right_mgs.jsp" path="/role/right_mgs.jsp" location="2043,310" size="150,55" />
+  <webResource name="role_add.jsp" path="/role/role_add.jsp" location="2046,485" size="150,55" />
+  <webResource name="role_edit.jsp" path="/role/role_edit.jsp" location="2151,870" size="150,55" />
+  <webResource name="right_eidt.jsp" path="/role/right_eidt.jsp" location="2044,695" size="150,55" />
+</Struts2Diagram>
+

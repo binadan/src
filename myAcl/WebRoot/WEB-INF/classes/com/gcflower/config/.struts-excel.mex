@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="excel" location="50,50" size="170,171">
+    <action name="exportProduct" location="11,39" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="productChart" location="10,120" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="productlist.jsp" />
+      </result>
+    </action>
+    <action name="productSup" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="productsuplist.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="productlist.jsp" path="/excel/productlist.jsp" location="346,253" size="150,55" />
+  <webResource name="productsuplist.jsp" path="/excel/productsuplist.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

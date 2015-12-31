@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="member" location="50,50" size="170,592">
+    <action name="fetchMemberList" location="10,20" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="list.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="searchAllMemJson" location="10,120" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="searchMemByNameJson" location="10,220" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="toCreateNote" location="10,320" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="order.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="subDeNoteProductJson" location="10,420" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="loadDeliveryNoteByIdJson" location="10,520" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="order.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="loadDNById" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="detail.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="fetchDeliveryNoteList" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="list.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="fetchSendDNList" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="sendlist.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="fetchMyDNList" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="mylist.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="login.html" />
+      </result>
+    </action>
+    <action name="deleteDetailJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateDNJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateDetailJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="sendDeliveryNoteJson" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteDN" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="employeelist.jsp" path="/system/employeelist.jsp" location="956,10" size="150,55" />
+  <webResource name="login.html" path="/login.html" location="10,185" size="150,55" />
+  <webResource name="producttypelist.jsp" path="/system/producttypelist.jsp" location="1229,535" size="150,55" />
+  <webResource name="list.jsp" path="/member/list.jsp" location="200,200" size="150,55" />
+  <webResource name="order.jsp" path="/sale/order.jsp" location="350,200" size="150,55" />
+  <webResource name="list.jsp" path="/sale/list.jsp" location="0,0" size="0,0" />
+  <webResource name="sendlist.jsp" path="/sale/sendlist.jsp" location="0,0" size="0,0" />
+  <webResource name="detail.jsp" path="/sale/detail.jsp" location="0,0" size="0,0" />
+  <webResource name="mylist.jsp" path="/sale/mylist.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

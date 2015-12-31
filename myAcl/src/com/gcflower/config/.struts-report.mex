@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="report" location="171,220" size="770,245">
+    <action name="CreatePieImg" location="65,47" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="test.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="sessionTimeout.jsp" />
+      </result>
+    </action>
+    <action name="CreateBarImg" location="65,152" size="150,62">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="test.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="sessionTimeout.jsp" />
+      </result>
+    </action>
+    <action name="CreateLineImg" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="test.jsp" />
+      </result>
+      <result name="sessionTimeout">
+        <resourceEdge source="sessionTimeout" routing="0" target="sessionTimeout.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="test.jsp" path="/report/test.jsp" location="10,345" size="150,55" />
+  <webResource name="sessionTimeout.jsp" path="/pages/sessionTimeout.jsp" location="466,520" size="150,55" />
+  <webResource name="memberIntegral.jsp" path="/report/memberIntegral.jsp" location="463,65" size="150,55" />
+</Struts2Diagram>
+

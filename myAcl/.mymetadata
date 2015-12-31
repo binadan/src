@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="myAcl"
+  id="myeclipse.1295495108736"
+  context-root="/myAcl"
+  j2ee-spec="5.0"
+  archive="myAcl.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

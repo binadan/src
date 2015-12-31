@@ -1,0 +1,98 @@
+package com.gcflower.entity;
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * Title:  Videosave.java
+ * 
+ * 
+ * Description:com.gcflower.entity.Videosave.java
+ * 
+ * 
+ * Copyright: Copyright (c) j2se 6.0
+ * 
+ * 
+ * date: 2015-6-11
+ * 
+ * 
+ * Company: 西安宇明科技
+ * 
+ * 
+ * @author 田凯
+ */
+
+public class Videosave implements java.io.Serializable {
+
+	// Fields
+
+	private Integer Vid;//视频ID
+	private Integer Vmid;//报警ID
+	private Integer Vlid;//报警类型ID
+	private String Vadd;//视频路径
+	
+	/**
+	 * 视频ID get/set 方法
+	 * @return
+	 */
+	public Integer getVid() {
+		return Vid;
+	}
+	public void setVid(Integer vid) {
+		Vid = vid;
+	}
+	
+	/**
+	 * 报警ID get/set 方法
+	 * @return
+	 */
+	public Integer getVmid() {
+		return Vmid;
+	}
+	public void setVmid(Integer vmid) {
+		Vmid = vmid;
+	}
+	
+	/**
+	 * 报警类型ID get/set 方法
+	 * @return
+	 */
+	public Integer getVlid() {
+		return Vlid;
+	}
+	public void setVlid(Integer vlid) {
+		Vlid = vlid;
+	}
+	
+	/**
+	 * 视频路径 get/set 方法
+	 * @return
+	 */
+	public String getVadd() {
+		return Vadd;
+	}
+	public void setVadd(String vadd) {
+		Vadd = vadd;
+	}
+	
+	/**
+	 * toString 方法
+	 */
+	@Override
+	public String toString() {
+		return "Videosave [Vid=" + Vid + ", Vmid=" + Vmid + ", Vlid=" + Vlid
+				+ ", Vadd=" + Vadd + "]";
+	}
+	
+	/**
+	 * 无参构造方法
+	 */
+	public Videosave() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+}
+	// Constructors
+

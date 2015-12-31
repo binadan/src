@@ -1,0 +1,46 @@
+package com.zx.tianjing.bean;
+
+public class HostManagementModel {
+	
+	private Integer M_ID; 
+	private Integer M_HOUSEID;
+	private String M_IP;
+	private String M_STATE;
+	private String M_MANUAL;
+	
+	
+	
+	public String getM_MANUAL() {
+		return M_MANUAL;
+	}
+	public void setM_MANUAL(String m_MANUAL) {
+		M_MANUAL = m_MANUAL;
+	}
+	public Integer getM_ID() {
+		return M_ID;
+	}
+	public void setM_ID(Integer m_ID) {
+		M_ID = m_ID;
+	}
+	public Integer getM_HOUSEID() {
+		return M_HOUSEID;
+	}
+	public void setM_HOUSEID(Integer m_HOUSEID) {
+		M_HOUSEID = m_HOUSEID;
+	}
+	public String getM_IP() {
+		return M_IP;
+	}
+	public void setM_IP(String m_IP) {
+		M_IP = m_IP;
+	}
+	public String getM_STATE() {
+		return M_STATE;
+	}
+	public void setM_STATE(String m_STATE) {
+		M_STATE = m_STATE;
+	}
+	
+
+	
+}

@@ -1,0 +1,190 @@
+package com.action;
+
+
+import java.io.UnsupportedEncodingException;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.http.client.methods.HttpGet;
+import org.apache.struts2.ServletActionContext;
+
+import com.zx.tianjing.bean.LarumInfosModel;
+import com.zx.tianjing.dao.LarumInfoDao;
+import com.zx.tianjing.dao.util.JxSqlServer2008DbConnection;
+public class LarumInfosAction{
+	private JxSqlServer2008DbConnection db_back=new JxSqlServer2008DbConnection();
+	//private int id;
+	private String L_TYPE;
+	private String L_DATE;
+	private String L_MID;
+	private String L_HID;
+	private String L_VHOEID;//设备编号ID
+	private Integer result;
+	private String msg;
+Map<String, Object> map1  = null;
+/*	static Map<String, String> map = null;*/
+	public String getL_VHOEID() {
+		return L_VHOEID;
+	}
+	public void setL_VHOEID(String l_VHOEID) {
+		L_VHOEID = l_VHOEID;
+	}
+	public String getL_HID() {
+		return L_HID;
+	}
+	public void setL_HID(String l_HID) {
+		L_HID = l_HID;
+	}
+	public String getL_MID() {
+		return L_MID;
+	}
+	public void setL_MID(String l_MID) {
+		L_MID = l_MID;
+	}
+
+	public String getL_TYPE() {
+		return L_TYPE;
+	}
+	public void setL_TYPE(String l_TYPE) {
+		L_TYPE = l_TYPE;
+	}
+	public String getL_DATE() {
+		return L_DATE;
+	}
+	public void setL_DATE(String l_DATE) {
+		L_DATE = l_DATE;
+	}
+	public Integer getResult() {
+		return result;
+	}
+	public void setResult(Integer result) {
+		this.result = result;
+	}
+	public String getMsg() {
+		return msg;
+	}
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	HttpGet httpgets = null;
+	static Map<String, String> map = new HashMap<String, String>();
+	
+	public String exigency() throws UnsupportedEncodingException {
+		LarumInfoDao dao = new LarumInfoDao();
+		LarumInfosModel laruminfo = new LarumInfosModel();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String L_MID = request.getParameter("L_MID");
+		String L_DATE = request.getParameter("L_DATE");
+		String L_TYPE = request.getParameter("L_TYPE");
+		String L_HID = request.getParameter("L_HID");
+		String L_VHOEID = request.getParameter("L_VHOEID");
+		laruminfo.setL_STATE("0");
+		laruminfo.setL_MID(L_MID);
+		laruminfo.setL_TYPE(L_TYPE);
+		laruminfo.setL_DATE(L_DATE);
+		laruminfo.setL_HID(L_HID);
+		/*if(L_HID!=null && !L_HID.equals("")){
+			String l_HID= new String(L_HID.getBytes("iso-8859-1"),"utf-8");
+			laruminfo.setL_HID(l_HID);
+		}*/
+		laruminfo.setL_VHOEID(L_VHOEID);
+		/*Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
+			@Override
+			public void run() {
+				map = new HashMap<String, String>();
+			}
+		};
+		timer = new Timer();
+		timer.schedule(task, 1000 * 60 * 1);*/
+		try {
+			/*if(map.get(String.valueOf(L_MID))==null){
+			System.out.println(map.get(String.valueOf(L_MID)));*/
+			
+			 
+			//HttpServletRequest request = ServletActionContext.getRequest();
+			/*request.getSession().setAttribute("h_name", h_name);*/
+			
+			
+			
+			String Sql = "select * from hostManageMent where M_HOUSEID ='"+laruminfo.getL_HID()+"'";
+			ResultSet rs1 = db_back.executeQuery(Sql);
+			if(rs1.next()){
+			
+			
+		    String sql ="select * from laruminfo where L_MID='"+laruminfo.getL_MID()+"' and L_TYPE='"+laruminfo.getL_TYPE()+"' and  L_STATE='"+laruminfo.getL_STATE()+"'";
+			
+			ResultSet rs2 = db_back.executeQuery(sql);
+			
+				if(!rs2.next()){
+					map1 = dao.exigency(laruminfo);
+					String sql_query = "select H_USERNAME,H_NAME,H_TEL,H_EMERGENCNAME,H_EMERGENCTEL" +
+							",H_EMERGENCNAME1,H_EMERGENCTEL1,H_EMERGENCNAME2," +
+							"H_EMERGENCTEL2,H_NO from household as h ," +
+							"laruminfo as l where h.H_NO = l.L_HID AND L_MID='"+laruminfo.getL_MID()+"'";
+						ResultSet rs = db_back.executeQuery(sql_query);
+				//List<String> list = new ArrayList<String>();
+						String h_username = "";
+						String h_name = "";  
+						String h_tel = "";
+					    String h_emergencname="";
+						String h_emergenctel="";
+						String h_emergencname1="";
+						String h_emergenctel1="";
+						String h_emergencname2="";
+					    String h_emergenctel2="";
+					    String h_no="";
+					    while(rs.next()){
+							h_username = rs.getString(1);
+							h_name = rs.getString(2);
+							h_tel = rs.getString(3);
+							h_emergencname = rs.getString(4);
+							h_emergenctel = rs.getString(5);
+							h_emergencname1 = rs.getString(6);
+							h_emergenctel1 = rs.getString(7);
+							h_emergencname2 = rs.getString(8);
+							h_emergenctel2 = rs.getString(9);
+							h_no = rs.getString(10);
+						}
+					//java.net.URLEncoder.encode(h_name,"utf-8")
+					String str = "?action=start&h_username="+java.net.URLEncoder.encode(h_username,"utf-8")+"&h_name="+java.net.URLEncoder.encode(h_name,"utf-8")+""+"&h_tel="+h_tel+"&h_emergencname="+java.net.URLEncoder.encode(h_emergencname,"utf-8")+"&h_emergenctel="+h_emergenctel+"&h_emergencname1="+java.net.URLEncoder.encode(h_emergencname1,"utf-8")+"&h_emergenctel1="
+						    +h_emergenctel1+"&h_emergencname2="+java.net.URLEncoder.encode(h_emergencname2,"utf-8")+"&h_emergenctel2="+h_emergenctel2+"&h_no="+java.net.URLEncoder.encode(h_no,"utf-8")+"&l_mid="+L_MID;
+						    	//str = java.net.URLEncoder.encode(str,"iso-8859-1");
+								Process pro = Runtime.getRuntime().
+										exec("rundll32 url.dll,FileProtocolHandler " +
+												"http://localhost:8080/jsonPrcProjectApi/viewInfo.jsp" +  str);
+					map.put(String.valueOf(L_MID),String.valueOf(L_MID));
+					//
+					result = (Integer) map1.get("request");
+					msg = "该房间正在紧急响铃";
+				}else{
+					/*L_DATE = "1";*/
+					msg = "该房间已经紧急响铃";
+					result = 0;
+				}
+				
+			}
+			else{
+				result = -1;
+				msg = "该房间不存在";
+			}
+			
+			
+			/*}*/
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			
+			e.printStackTrace();
+		}
+		
+		
+		return "success";
+	}
+}

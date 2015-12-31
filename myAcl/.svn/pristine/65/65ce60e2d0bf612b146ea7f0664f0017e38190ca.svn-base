@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="system" extends="base">
+
+		<!-- 模块部分 -->
+
+		<action name="searchModules" class="com.gcflower.action.ModuleAction"
+			method="searchModules">
+			<result name="index">/sys/module/index.jsp</result>
+		</action>
+
+		<action name="delModule" class="com.gcflower.action.ModuleAction"
+			method="del">
+			<result name="pub_del_success" type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+		<action name="addModule" class="com.gcflower.action.ModuleAction"
+			method="add">
+			<result name="pub_add_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<action name="updateInput" class="com.gcflower.action.ModuleAction"
+			method="updateInput">
+			<result name="update_input">/sys/module/update.jsp</result>
+		</action>
+
+		<action name="updateModule" class="com.gcflower.action.ModuleAction"
+			method="update">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<action name="checkModuleSN" class="com.gcflower.action.ModuleAction"
+			method="checkModuleSN">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="checkModuleNum" class="com.gcflower.action.ModuleAction"
+			method="checkModuleNum">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<!-- 权限部分 -->
+		<action name="hasPermission" class="com.gcflower.action.AclAction"
+			method="hasPermission">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- 用户列表 -->
+		<action name="serarchUser" class="com.gcflower.action.SalesmanAction"
+			method="searchPerson">
+			<result name="index">/sys/user/index.jsp</result>
+		</action>
+
+
+
+
+		<!-- 人员部分 -->
+		<action name="searchPerson" class="com.gcflower.action.SalesmanAction"
+			method="searchPerson">
+			<result name="index">/sys/person/index.jsp</result>
+		</action>
+
+		<action name="addPerson" class="com.gcflower.action.SalesmanAction"
+			method="add">
+			<result name="pub_add_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="loadPerson" class="com.gcflower.action.SalesmanAction"
+			method="updateInput">
+			<result name="update_input">/sys/person/update.jsp</result>
+		</action>
+
+		<action name="updatePerson" class="com.gcflower.action.SalesmanAction"
+			method="update">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="delPerson" class="com.gcflower.action.SalesmanAction"
+			method="del">
+<!-- 			<result name="pub_del_success" type="json">
+				<param name="root">msg</param>
+			</result> -->
+			<result name="pub_del_success" type="redirectAction">searchPerson</result>
+		</action>
+		<!-- 批量删除 -->
+		<action name="deletePerAll" class="com.gcflower.action.SalesmanAction"
+			method="deletePerAll">
+			<result name="pub_del_success" type="json">searchPerson
+				 <param name="root">msg</param> 
+			</result>
+			
+		</action>
+
+
+		<!-- 帐号：用户部分 -->
+
+		<action name="addInputUser" class="com.gcflower.action.UserAction"
+			method="addInputUser">
+			<result name="add_input">/sys/user/add.jsp</result>
+		</action>
+
+		<action name="checkUserName" class="com.gcflower.action.UserAction"
+			method="checkUserName">
+			<result name="pub_check" type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+
+		<action name="addUser" class="com.gcflower.action.UserAction"
+			method="add">
+			<result name="pub_add_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="deleteUser" class="com.gcflower.action.UserAction"
+			method="delete">
+			<result name="pub_delete_success" type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+		<action name="updateInputUser" class="com.gcflower.action.UserAction"
+			method="updateInput">
+			<result name="update_input">/sys/user/update.jsp</result>
+		</action>
+
+		<action name="updateUser" class="com.gcflower.action.UserAction"
+			method="update">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<!-- 分配角色页 -->
+		<action name="userRoleInput" class="com.gcflower.action.UserAction"
+			method="userRoleInput">
+			<result name="user_role_input">/sys/user/assigningroles.jsp</result>
+		</action>
+
+		<!-- 分配角色页 -->
+		<action name="userRoleList" class="com.gcflower.action.UserAction"
+			method="userRoleList">
+			<result name="user_role_list" type="json">
+				<param name="root">list</param>
+			</result>
+		</action>
+
+		<action name="addUserRole" class="com.gcflower.action.UserAction"
+			method="addUserRole">
+			<result name="pub_add_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="deluserRole" class="com.gcflower.action.UserAction"
+			method="deluserRole">
+			<result name="pub_del_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="updateUserRoleNo" class="com.gcflower.action.UserAction"
+			method="updateUserRoleNo">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- 角色部分 -->
+		<action name="searchRole" class="com.gcflower.action.RoleAction"
+			method="searchRole">
+			<result name="index">/sys/role/index.jsp</result>
+		</action>
+
+
+		<action name="checkRoleName" class="com.gcflower.action.RoleAction"
+			method="checkRoleName">
+			<result name="success" type="json">
+				<param name="root">data</param>
+			</result>
+		</action>
+
+		<action name="addRole" class="com.gcflower.action.RoleAction"
+			method="add">
+			<result name="pub_add_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="updateInputRole" class="com.gcflower.action.RoleAction"
+			method="updateInput">
+			<result name="update_input">/sys/role/update.jsp</result>
+		</action>
+
+		<action name="updateRole" class="com.gcflower.action.RoleAction"
+			method="update">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="delRole" class="com.gcflower.action.RoleAction"
+			method="del">
+			<result name="pub_del_success" type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+
+		<!-- 授权部分 -->
+		<action name="serachAcl" class="com.gcflower.action.AclAction"
+			method="serachAcl">
+			<result name="index">/sys/role/aclindex.jsp</result>
+		</action>
+
+
+		<action name="searchAclRecord" class="com.gcflower.action.AclAction"
+			method="searchAclRecord">
+			<result name="success" type="json">
+				<param name="root">list</param>
+			</result>
+		</action>
+
+		<action name="addOrUpdatePermission" class="com.gcflower.action.AclAction"
+			method="addOrUpdatePermission">
+			<result name="pub_per_AD" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<action name="delPermission" class="com.gcflower.action.AclAction"
+			method="delPermission">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- 组织架构部分 -->
+		<action name="searchOrg" class="com.gcflower.action.TearmAction"
+			method="searchOrg">
+			<result name="index">/sys/org/index.jsp</result>
+		</action>
+
+		<action name="addreadOrg" class="com.gcflower.action.TearmAction"
+			method="addInput">
+			<result name="add_input">/sys/org/add.jsp</result>
+		</action>
+
+		<action name="loadOrg" class="com.gcflower.action.TearmAction"
+			method="updateInput">
+			<result name="update_input">/sys/org/add.jsp</result>
+		</action>
+
+		<action name="searchOrgJson" class="com.gcflower.action.TearmAction"
+			method="searchOrgJson">
+			<result name="success" type="json">
+				<param name="root">list</param>
+			</result>
+		</action>
+
+		<action name="delOrg" class="com.gcflower.action.TearmAction"
+			method="del">
+			<result name="pub_del_success" type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+		<action name="updateOrg" class="com.gcflower.action.TearmAction"
+			method="update">
+			<result name="pub_update_success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+		<!-- 住户信息 -->
+		<!-- 增加 -->
+		<action name="addHouser" class="com.gcflower.action.HouseholdAction"
+			method="addHouser">
+			<result name="addHouser" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 删除 -->
+		<action name="delHouser" class="com.gcflower.action.HouseholdAction"
+			method="delHouser">
+			<result name="delHouser" type="redirectAction">searchHousehold</result>
+		</action>
+		<!-- 批量删除 -->
+		<action name="delHouses" class="com.gcflower.action.HouseholdAction"
+			method="delHouses">
+			<result name="delHouser" type="redirectAction">searchHousehold</result>
+		</action>
+		<!-- 修改 -->
+		<action name="updHouser" class="com.gcflower.action.HouseholdAction"
+			method="updHouser">
+			<result name="updHouser" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="findById" class="com.gcflower.action.HouseholdAction"
+			method="findById">
+			<result name="findById" type="dispatcher">sys/household/update.jsp</result>
+		</action>
+		<!-- 查询所有 -->
+		<action name="searchHousehold" class="com.gcflower.action.HouseholdAction"
+			method="searchHousehold">
+			<result name="index">sys/household/index.jsp</result>
+		</action>
+		<!-- 住户信息 条件查询 -->
+		<action name="selectHouse" class="com.gcflower.action.HouseholdAction"
+			method="selectHouse">
+			<result name="selectHouse">sys/household/index.jsp</result>
+		</action>
+		<!-- 住户信息END -->
+
+
+		<!-- 視頻開始 -->
+
+		<!-- 添加 -->
+		<action name="addvideo" class="com.gcflower.action.videoAction"
+			method="addvideo">
+			<result name="addvideo" type="redirectAction">searchVideo</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="findByIdVideo" class="com.gcflower.action.videoAction"
+			method="findByIdVideo">
+			<result name="success" type="dispatcher">jsVideo/demo.jsp</result>
+		</action>
+		<!-- 查詢 -->
+		<action name="searchVideo" class="com.gcflower.action.videoAction"
+			method="findAll">
+			<result name="index">sys/video/videolist.jsp</result>
+		</action>
+		<!-- 刪除 -->
+		<action name="delete" class="com.gcflower.action.videoAction"
+			method="delete">
+			<result name="delete" type="redirectAction">searchVideo</result>
+		</action>
+		<!-- 批量刪除 -->
+		<action name="delVideos" class="com.gcflower.action.videoAction"
+			method="delVideos">
+			<result name="delete" type="redirectAction">searchVideo</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 視頻完 -->
+
+
+
+		<!-- 主机管理部分 -->
+		<!--查询所有 -->
+		<action name="searchHostManagement" class="com.gcflower.action.HostManagementAction"
+			method="searchHostManagement">
+			<result name="index">/sys/hostmanagement/host.jsp</result>
+		</action>
+		<!-- 删除 -->
+		<action name="del" class="com.gcflower.action.HostManagementAction"
+			method="del">
+			<result name="success" type="redirectAction">selectHostManagement</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!--批量 删除 -->
+		<action name="delHosts" class="com.gcflower.action.HostManagementAction"
+			method="delHosts">
+			<result name="success" type="redirectAction">selectHostManagement</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 增加 -->
+		<action name="add" class="com.gcflower.action.HostManagementAction"
+			method="add">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="findByIdHost" class="com.gcflower.action.HostManagementAction"
+			method="findByIdHost">
+			<result name="success">/sys/hostmanagement/update.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- 修改 -->
+		<action name="update" class="com.gcflower.action.HostManagementAction"
+			method="update">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="selectHostManagement" class="com.gcflower.action.HostManagementAction"
+			method="selectHostManagement">
+			<result name="selectHostManagement">sys/hostmanagement/host.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+		<!-- 主机管理部分 END -->
+
+	<!-- 警报信息部分 -->
+     	
+     	<!-- 查询所有警报信息 -->
+		<action name="searchLaruminfo" class="com.gcflower.action.LarumAction" method="searchLaruminfo">
+			<result name="index" >sys/larum/index.jsp</result> <!--已修改  -->
+			<result name="error">error.jsp</result>
+        </action>
+        
+        <!-- 警报信息 添加页面初始化-->
+      <!--   <action name="addLarumInput" class="com.gcflower.action.LarumAction" method="addLarumInput">
+				<result name="add_input" >/sys/larum/add.jsp</result>
+        </action> -->
+        
+         <!-- 添加警报信息 -->
+        <action name="addLaruminfo" class="com.gcflower.action.LarumAction" method="addLaruminfo">
+			<result name="addLaruminfo" type="json" ><param name="root">result</param><!--已修改  --></result> 
+        	<result name="error">error.jsp</result>
+        </action>
+        
+        <!-- 紧急警报信息 -->
+        <action name="addbaojing" class="com.gcflower.action.LarumAction" method="addbaojing">
+			<result name="addLaruminfo" type="json" ><param name="root">result</param><!--已修改  --></result> 
+        	<result name="error">error.jsp</result>
+        </action>
+        <!-- 删除警报信息 -->
+        <action name="delLaruminfo" class="com.gcflower.action.LarumAction" method="delLaruminfo">
+			<result name="delLaruminfo" type="redirectAction" >selectLaruminfo<!--已修改  --></result>
+			<result name="error">error.jsp</result> 
+        </action>
+         <!-- 批量删除警报信息 -->
+        <action name="deleteLarum" class="com.gcflower.action.LarumAction" method="delAllLarum">
+			<result name="delLaruminfo" type="redirectAction" >selectLaruminfo</result>
+			<result name="error">error.jsp</result> 
+        </action>
+        <!-- 查询单个 -->
+		<action name="findByl_id" class="com.gcflower.action.LarumAction" method="findByl_id">
+			<result name="findByl_id"  type="dispatcher">/sys/larum/update.jsp</result><!--已修改  -->
+			<result name="error">error.jsp</result>
+		</action>
+        
+         <!-- 警报信息 更新保存-->
+        <action name="updateLaruminfo" class="com.gcflower.action.LarumAction" method="updateLaruminfo">
+			<result name="updateLaruminfo" type="json" ><param name="root">result</param><!--已修改  --></result> 
+			<result name="error">error.jsp</result>
+        </action>
+        
+         <!-- 警报信息 条件查询-->
+        <action name="selectLaruminfo" class="com.gcflower.action.LarumAction" method="selectLaruminfo">
+        			<result name="index" type="dispatcher">sys/larum/index.jsp</result><!--已修改  -->
+        			<result name="error">error.jsp</result>
+        </action>
+
+		<!--缴费信息 -->
+		<!-- 增加 -->
+		<action name="addPay" class="com.gcflower.action.PaymentmanagementAction"
+			method="addPay">
+			<result name="addPay" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 删除 -->
+		<action name="delPay" class="com.gcflower.action.PaymentmanagementAction"
+			method="delPay">
+			<result name="delPay" type="redirectAction">selectPay</result>
+		</action>
+		<!-- 修改 -->
+		<action name="updPay" class="com.gcflower.action.PaymentmanagementAction"
+			method="updPay">
+			<result name="updPay" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 查询明细 -->
+		<action name="findByIds" class="com.gcflower.action.PaymentmanagementAction"
+			method="findByIds">
+			<result name="index">sys/pay/payinfo.jsp</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="findByPId" class="com.gcflower.action.PaymentmanagementAction"
+			method="findByPId">
+			<result name="findByPId" type="dispatcher">sys/pay/update.jsp</result>
+		</action>
+		<!-- 查询所有 -->
+		<action name="searchPaymentManagement" class="com.gcflower.action.PaymentmanagementAction"
+			method="searchPaymentManagement">
+			<result name="index">sys/pay/index.jsp</result>
+		</action>
+		<!-- 住户信息 条件查询 -->
+		<action name="selectPay" class="com.gcflower.action.PaymentmanagementAction"
+			method="selectPay">
+			<result name="selectPay">sys/pay/index.jsp</result>
+		</action>
+		<!-- 缴费END -->
+
+
+		<!-- 版本信息部分 -->
+		<!-- 查询所有 -->
+		<action name="searchVersion" class="com.gcflower.action.VersionAction"
+			method="findAllVervion">
+			<result name="index">/sys/version/index.jsp</result>
+		</action>
+		<!-- 查询单个 -->
+		<action name="queryById" class="com.gcflower.action.VersionAction"
+			method="queryById">
+			<result name="success">/sys/version/update.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<!-- 修改 -->
+		<action name="updVersion" class="com.gcflower.action.VersionAction"
+			method="updVersion">
+			<result name="updVersion" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 删除 -->
+		<action name="deleteVersion" class="com.gcflower.action.VersionAction"
+			method="del">
+			<result name="success" type="redirectAction">searchVersion</result>
+			<result name="error">error.jsp</result>
+		</action>
+			<!-- 批量删除 -->
+		<action name="delAllVersion" class="com.gcflower.action.VersionAction"
+			method="delAllVersion">
+			<result name="success" type="redirectAction">searchVersion</result>
+		</action>
+		<!-- 增加 -->
+		<action name="addVersion" class="com.gcflower.action.VersionAction"
+			method="addVersion">
+			<result name="success" type="redirectAction">searchVersion</result>
+		</action>
+		<!-- 上传 -->
+		<action name="upVersion" class="com.gcflower.action.VersionAction"
+			method="upVersion">
+			<result name="success" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<!-- 版本信息部分END -->
+
+
+	</package>
+</struts>

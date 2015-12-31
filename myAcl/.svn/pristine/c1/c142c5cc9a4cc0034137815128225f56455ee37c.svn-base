@@ -1,0 +1,52 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    <title>视频播放界面</title>
+	<meta http-equiv="pragma" content="no-cache">
+    <script charset="utf-8" src="<%=basePath %>/kindeditor/plugins/insertVideo/ckplayer/ckplayer.js"></script>
+    <script charset="utf-8" src="<%=basePath %>/kindeditor/plugins/insertVideo/callCkplayer.js"></script>
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+  </head>
+  
+  <script type="text/javascript">
+    var myVideo=document.getElementById("video1");
+
+
+     function playVid(){
+          demo.play();
+  }
+
+     function pauseVid(){
+          demo.pause();
+  }
+  
+
+</script>
+<body>
+ <object id="video1" width="900" height="400" border="0" classid="clsid:CFCDAA03-8BE4-11cf-B84B-0020AFBBCCFA">
+<param name="ShowDisplay" value="0">
+<param name="ShowControls" value="1">
+<param name="AutoStart"   value="0">
+<param name="AutoRewind" value="0">
+<param name="PlayCount" value="0">
+<param name="fullScreen" value="0">
+<param name="Appearance" value="0" value="">
+<param name="BorderStyle" value="0" value="">
+<param name="MovieWindowHeight" value="240">
+<param name="MovieWindowWidth" value="320">
+<param name="FileName" value="<s:property value='vide.Vadd'/>">
+<embed width="900" height="400" border="0" showdisplay="0" AutoStart ="false" showcontrols="1" autostart="1" autorewind="0" playcount="0" moviewindowheight="240" moviewindowwidth="320" filename="<s:property value='vide.Vadd'/>" src="<s:property value='vide.Vadd'/>">
+</embed>
+</object> 
+
+</body>
+</html>

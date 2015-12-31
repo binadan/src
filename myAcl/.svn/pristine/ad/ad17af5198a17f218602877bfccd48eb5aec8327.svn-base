@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.gcflower.entity.Laruminfo" table="laruminfo" catalog="znaf">
+        <id name="l_id" type="java.lang.Integer">
+            <column name="l_id" />
+            <generator class="native" />
+        </id>
+        <property name="l_mid" type="java.lang.String">
+            <column name="l_mid"  />
+        </property>
+        <property name="l_hid" type="java.lang.String">
+            <column name="l_hid" />
+        </property>
+        <property name="l_type" type="java.lang.String">
+            <column name="l_type" />
+        </property>
+        <property name="l_personid" type="java.lang.Integer">
+            <column name="l_personid" />
+        </property>
+        <property name="l_date" type="java.lang.String">
+            <column name="l_date"  />
+        </property>
+        <property name="l_pdate" type="java.lang.String">
+            <column name="l_pdate"  />
+        </property>
+        <property name="l_remark" type="java.lang.String">
+            <column name="l_remark"  />
+        </property>
+        <property name="l_state" type="java.lang.String">
+            <column name="l_state"  />
+        </property>
+    </class>
+</hibernate-mapping>

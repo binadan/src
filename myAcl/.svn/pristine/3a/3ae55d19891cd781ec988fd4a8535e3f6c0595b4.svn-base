@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="t_organization" catalog="auth"
+		class="com.gcflower.entity.Organization">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_person" catalog="auth"
+		class="com.gcflower.entity.Person">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_user" catalog="auth"
+		class="com.gcflower.entity.User">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_role" catalog="auth"
+		class="com.gcflower.entity.Role">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_module" catalog="auth"
+		class="com.gcflower.entity.Module">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_usersroles" catalog="auth"
+		class="com.gcflower.entity.UsersRoles">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_acl" catalog="auth"
+		class="com.gcflower.entity.Acl">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_catalog" catalog="auth"
+		class="com.gcflower.entity.Catalog">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="v_vote" catalog="auth"
+		class="com.gcflower.entity.Vote">
+	</table>
+	<table name="t_product" catalog="eshop"
+		class="com.gcflower.entity.mallgc.Product">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_orderinfo" catalog="eshop"
+		class="com.gcflower.entity.mallgc.OrderInfo">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_orderdetail" catalog="eshop"
+		class="com.gcflower.entity.mallgc.OrderDetail">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_entrylog" catalog="mallgckc"
+		class="com.gcflower.entity.mallgc.EntryLog">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_supplier" catalog="mallgckc"
+		class="com.gcflower.entity.Supplier">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_unit" catalog="mallgckc"
+		class="com.gcflower.entity.Unit">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_material" catalog="mallgckc"
+		class="com.gcflower.entity.Material">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_materialdetail" catalog="mallgckc"
+		class="com.gcflower.entity.MaterialDetail">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_materialstock" catalog="mallgckc"
+		class="com.gcflower.entity.MaterialStock">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_finalproduct" catalog="mallgckc"
+		class="com.gcflower.entity.FinalProduct">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="t_productmaterial" catalog="mallgckc"
+		class="com.gcflower.entity.ProductMaterial">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="t_specification" catalog="eshop"
+	class="com.gcflower.entity.Specification">
+	<primary-key>
+		<generator class="native"></generator>
+	</primary-key>
+</table>
+</hibernate-reverse-engineering>

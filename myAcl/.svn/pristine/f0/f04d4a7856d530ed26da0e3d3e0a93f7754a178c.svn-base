@@ -1,0 +1,144 @@
+package com.gcflower.dao;
+
+import java.util.List;
+
+import javax.swing.event.HyperlinkListener;
+
+import org.hibernate.SQLQuery;
+
+import com.gcflower.entity.HostManagement;
+import com.gcflower.entity.HostManagement1;
+import com.gcflower.entity.Household;
+import com.gcflower.entity.LarumSearchForm;
+import com.gcflower.entity.Laruminfo;
+import com.gcflower.entity.Paymentmanagement;
+import com.gcflower.entity.Role;
+import com.gcflower.entity.Salesman;
+import com.gcflower.entity.User;
+import com.gcflower.entity.UsersRoles;
+import com.gcflower.util.PageManager;
+
+/**
+ * 
+ * @Title: HostManagementDao.java
+ * @Package com.gcflower.dao
+ * @Description: TODO
+ * @author 田凯
+ * @date 2015-5-20
+ */
+
+@SuppressWarnings("unchecked")
+public class HostManagementDao extends BaseDao {
+
+	/**
+	 * 查询所有
+	 * 
+	 * @return
+	 */
+	public List<HostManagement> findAll() {
+
+		return (List<HostManagement>) getHibernateTemplate().find(
+				"from HostManagement order by M_MANUAL");
+	}
+
+	/**
+	 * 保存
+	 * 
+	 */
+	public void save(HostManagement hostManagement) {
+		try {
+			getHibernateTemplate().save(hostManagement);
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+
+	}
+
+	/**
+	 * 修改
+	 */
+	public void update(HostManagement hostManagement) {
+
+		this.getHibernateTemplate().update(hostManagement);
+	}
+
+	/**
+	 * 删除
+	 * 
+	 */
+	public void delete(HostManagement hostManagement) {
+		this.getHibernateTemplate().delete(hostManagement);
+	}
+
+	public List<HostManagement> findById(int hostId) {
+		List ul = getHibernateTemplate().find(
+				"select * from HostManagement  where M_ID = ?",
+				new Object[] { hostId });
+
+		return null;
+	}
+	
+
+	
+	public List selectHostManagement(HostManagement1 hostManagement1,
+			PageManager page) {
+
+		StringBuffer sql = new StringBuffer(
+				"select * from hostmanagement a ,Paymentmanagement b where a.M_MANUAL = b.P_NO");
+		if (hostManagement1 != null) {
+			// 主机状态
+			if (hostManagement1.getM_STATE() != null
+					&& !(hostManagement1.getM_STATE().equals(""))) {
+				sql.append(" and a.M_STATE = :amstate");
+				//sql.append(hostManagement1.getM_STATE().trim());
+			}
+			// 欠费状况
+			if (hostManagement1.getP_STATE() != null
+					&& !(hostManagement1.getP_STATE().equals(""))) {
+				sql.append(" and b.P_STATE = :bmstate");
+				//sql.append(hostManagement1.getP_STATE().trim());
+				//sql.append("'");
+			}
+			
+			//sql.append(" ORDER BY M_id DESC");
+		}
+		/*sql.append(" ORDER BY M_id DESC");*/
+
+		SQLQuery query = getSession().createSQLQuery(sql.toString());
+		if (hostManagement1 != null && hostManagement1.getM_STATE() != null
+				&& !(hostManagement1.getM_STATE().equals(""))) {
+			query.setString("amstate", hostManagement1.getM_STATE());
+			System.out.println(hostManagement1.getM_STATE());
+		}
+		if (hostManagement1 != null && hostManagement1.getP_STATE() != null
+				&& !(hostManagement1.getP_STATE().equals(""))) {
+			query.setString("bmstate", hostManagement1.getP_STATE());
+			System.out.println(hostManagement1.getP_STATE());
+		}
+		int total = query.list().size();
+
+		query.setFirstResult((page.getPage() - 1) * page.getMaxResults());
+		query.setMaxResults(page.getMaxResults());
+		// 结果数据
+		List list = query.addEntity("a", HostManagement1.class).list();
+		System.out.println(sql.toString());
+		
+		// 获取记录总数
+		// 把查询结果赋于分页类
+		page.setDatas(list);
+		page.setRecordTotal(total);
+		return list;
+
+	}
+	public List<HostManagement> findHost(HostManagement hostManagement){
+		
+		return (List<HostManagement>)getHibernateTemplate().find("from HostManagement where M_MANUAL = '"+hostManagement.getM_MANUAL()+"'");
+		/*if(ul !=null && ul.size()>=1){
+			return (HostManagement)ul.get(0);
+		}
+		return null;*/
+	}
+	
+
+}
